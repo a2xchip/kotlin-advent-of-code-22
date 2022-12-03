@@ -1,8 +1,7 @@
 import java.io.File
 
 fun main() {
-    fun readInput(name: String) = File("src", "$name.txt")
-        .readText().split("\n\n")
+    fun readInput(name: String) = File("src", "$name.txt").readText().split("\n\n")
 
     fun perElf(input: List<String>): List<Int> = input.map { elf ->
         elf.split("\n").map { it.toInt() }.sum()
