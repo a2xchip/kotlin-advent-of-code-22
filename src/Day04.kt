@@ -8,25 +8,23 @@ fun toRangePairs(line: String): Pair<IntRange, IntRange> {
     return a.toRange() to b.toRange()
 }
 
-fun oneFullyInAnotherFilter(pair: Pair<IntRange, IntRange>): Boolean {
+fun fullyOverlaps(pair: Pair<IntRange, IntRange>): Boolean {
     val (first, second) = pair
     return first.all(second::contains) || second.all(first::contains)
 }
 
-fun onePartiallyInAnotherFilter(pair: Pair<IntRange, IntRange>): Boolean {
+fun partiallyOverlaps(pair: Pair<IntRange, IntRange>): Boolean {
     val (first, second) = pair
     return first.any(second::contains) || second.any(first::contains)
 }
 
 fun main() {
-
-
     fun part1(input: List<String>): Int {
-        return input.map(::toRangePairs).filter(::oneFullyInAnotherFilter).size
+        return input.map(::toRangePairs).filter(::fullyOverlaps).size
     }
 
     fun part2(input: List<String>): Int {
-        return input.map(::toRangePairs).filter(::onePartiallyInAnotherFilter).size
+        return input.map(::toRangePairs).filter(::partiallyOverlaps).size
     }
 
     val testInput = readInput("Day04_test")
