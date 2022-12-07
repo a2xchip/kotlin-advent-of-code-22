@@ -4,7 +4,7 @@ fun main() {
             if (v.toSet().size == size) return k + size
         }
 
-        throw Exception(message = "Marker not found")
+        throw Exception("Marker not found")
     }
 
     fun part1(input: List<String>): Int {
