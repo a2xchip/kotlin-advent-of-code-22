@@ -121,4 +121,3 @@ fun main() {
     check(part1(input) == 2031851)
     check(part2(input) == 2568781)
 }
-
